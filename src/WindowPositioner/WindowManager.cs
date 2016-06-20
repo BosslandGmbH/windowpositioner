@@ -20,7 +20,7 @@ namespace WindowPositioner
         public static bool FixedSizes { get; set; }
 
         private static IEnumerable<Process> GameProcesses
-            => GlobalSettings.Instance.ProcessNames.SelectMany(Process.GetProcessesByName);
+            => GlobalSettings.Instance.ProcessNames.Distinct().SelectMany(Process.GetProcessesByName);
 
         public static IEnumerable<ManagedWindow> CalculateMatrix()
         {
